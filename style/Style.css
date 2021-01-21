@@ -1,0 +1,280 @@
+* {
+    margin : 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat',sans-serif;
+    overflow-x: hidden;
+    height: 2000px;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    background-color: white;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    color: black;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 4px;
+}
+
+.sticky {
+    top: 0;
+    position: fixed;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 35%;
+}
+
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    background-color: #ffb84d;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-toggle  input{
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* Humburger animation */
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    transform: rotate(45deg) translate(-1px, -1px);
+} 
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    transform: rotate(-45deg) translate(-1px, 0);
+} 
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+   transform: scale(0);
+} 
+
+.jumbotron {
+    width: 100%;
+    height: 700px;
+    background-image: url('../background.jpg');
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.jumbotron:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+}
+
+.jumbotron img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.jumbotron h1 {
+    z-index: 1;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 5px;
+}
+
+.jumbotron h3 {
+    z-index: 1;
+}
+
+.about {
+    max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.about h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 20px;
+   
+}
+
+.about .kotak {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 5px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about .kotak .card {
+    background-color: white;
+    width: 25%;
+    margin: 0 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.3);
+    
+}
+
+.about .kotak .card .card-head img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.about .kotak .card .card-body {
+    padding: 20px;
+}
+
+.about .kotak .card .card-body p {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.about .kotak .card .card-body a {
+    padding: 5px 10px;
+    background-color:  #ffb84d;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: black;
+    transition: .3s;
+}
+
+.about .kotak .card .card-body a:hover {
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);;
+    color: white;
+    transition: .3s;
+}
+
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 578px){
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+       position: absolute;
+       right: 0;
+       flex-direction: column;
+       top: 0;
+       height: 100vh;
+       width: 80%;
+       z-index: -1;
+       justify-content: space-evenly;
+       align-items: center;
+       background-color: #ffb84d;
+       transform:translateX(100%);
+       transition: .8s;
+       opacity: 0;
+    }
+
+    nav ul li a{
+        font-size: 1.2em;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.datar{
+        border-bottom: 2px solid black;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .jumbotron {
+        height: 600px;
+    }
+
+    .jumbotron h3 {
+        font-size: 15px;
+    }
+
+    .about {
+        max-width: 100%;
+    }
+
+    .about .kotak {
+        flex-direction: column;
+    }
+
+    .about .kotak .card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
